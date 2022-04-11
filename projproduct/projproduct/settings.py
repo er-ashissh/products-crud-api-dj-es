@@ -86,11 +86,23 @@ WSGI_APPLICATION = 'projproduct.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+_dev_sqlite = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'db.sqlite3',
+}
+
+_dev_mysql = {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'products_es_db_v2b',
+    'USER': 'root',
+    'PASSWORD': 'qwerty',
+    'HOST': 'localhost',
+    'PORT': '3306',
+}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': _dev_mysql
 }
 
 ELASTICSEARCH_DSL = {
