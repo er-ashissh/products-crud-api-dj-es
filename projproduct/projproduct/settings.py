@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import logging, os
+import logging.config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +45,9 @@ INSTALLED_APPS = [
     'django_elasticsearch_dsl_drf',
 
     # Custom App
-    'products'
+    'products',
+    # 'productsv2',
+    'employees'
 ]
 
 MIDDLEWARE = [
@@ -130,6 +134,42 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+# Logger
+SET_LOGGER_LEVEL = 'DEBUG'
+logging.config.dictConfig({
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            # 'format': '%(name)-12s %(levelname)-8s %(message)s'
+            'format': '\n[%(asctime)s] %(levelname)s - %(name)s - file: %(module)s - fun: %(funcName)s() - LN: %(lineno)d \n%(message)s'
+        },
+        'file': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'console'
+        },
+        'file': {
+            'level': SET_LOGGER_LEVEL,
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': '/tmp/debug.log'
+        }
+    },
+    'loggers': {
+        '': {
+            'level': SET_LOGGER_LEVEL,
+            'handlers': ['console', 'file']
+        }
+    }
+})
+
 
 
 # Internationalization

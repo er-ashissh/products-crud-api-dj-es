@@ -1,14 +1,14 @@
-from products.models import ProductDetails
+from productsv2.models import ProductDetailsv2
 from rest_framework import serializers
 
 
-class ProductDetailsSerializer(serializers.ModelSerializer):
-    name = serializers.CharField(max_length=200) 
+class ProductDetailsv2Serializer(serializers.ModelSerializer):
+    name = serializers.CharField(max_length=20) 
     price = serializers.IntegerField() 
     quantity = serializers.IntegerField() 
 
     class Meta:
-        model = ProductDetails
+        model = ProductDetailsv2
         # fields = '__all__'
         fields = ['id', 'name', 'price', 'quantity']
 

@@ -16,21 +16,3 @@ class ProductDetailsDocument(Document):
 
     class Django:
         model = ProductDetails
-
-
-@registry.register_document
-class ProductDetailsESDocument(Document):
-    id = fields.IntegerField(attr='id')
-
-    class Index:
-        name = "products_v2_search"
-    
-    class Django:
-        model = ProductDetails
-
-        fields = [
-            # "id",
-            "name",
-            "price",
-            "quantity"
-        ]

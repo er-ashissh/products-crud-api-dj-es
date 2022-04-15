@@ -22,4 +22,6 @@ urlpatterns = [
 
     # -> API's
     path('products/', include('products.urls')),
+    # path('productsv2/', include('productsv2.urls')),
+    path('employees/', include('employees.urls')),
 ]
