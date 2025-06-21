@@ -79,6 +79,9 @@
 > - To open Interactive Console / Terminal
 > - $ python3 manage.py shell
 
+> - Run python file of django from terminal
+> - $ python3 manage.py shell < core/management/commands/update_all_brands.py
+
 > - set URL globally
 > - $ ngrok http 8000
 
@@ -166,5 +169,6 @@ ashishs@lp7981:.../product-crud-es$
 > 
 > > - Populate Elasticsearch:
 > > - $ python3 manage.py search_index --rebuild
+
 
 

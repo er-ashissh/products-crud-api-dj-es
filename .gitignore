@@ -17,3 +17,4 @@ projdg/media/
 */nohup.out
 nohup.out
 media/*
+*.DS_Store
